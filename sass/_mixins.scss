@@ -1,0 +1,332 @@
+// responsive variables
+$i-pad-width: 991px;
+$mobile-lg: 767px;
+$mobile-md: 639px;
+$mobile-md-500: 500px;
+$mobile-sm: 479px;
+$mobile-sm-359: 359px;
+$mobile-sm-349: 349px;
+$mobile-xs: 319px;
+
+//min-max-query
+@mixin min-max($min,$max) {
+  @media screen and (min-width: $min + px) and (max-width: $max + px) {
+    @content;
+  }
+}
+
+//custom-media query
+@mixin mq($screen, $custom) {
+  @if $screen == 'min' {
+    @media (min-width: $custom + px) {
+      @content;
+    }
+  } @else if $screen == 'max' {
+    @media (max-width: $custom + px) {
+      @content;
+    }
+  }
+}
+
+/*---- minmax-480 ----*/
+@mixin minmax-767 {
+  @media (max-width: 991px) and (min-width: 767px) {
+    @content;
+  }
+}
+
+@mixin custom-max($size) {
+  @media (max-width: $size + px) {
+    @content;
+  }
+}
+/*---- i-pad ----*/
+@mixin i-pad {
+  @media (max-width: #{$i-pad-width}) {
+    @content;
+  }
+}
+
+/*---- minmax-480 ----*/
+@mixin minmax-480 {
+  @media (max-width: 767px) and (min-width: 480px) {
+    @content;
+  }
+}
+
+/*---- mobile-lg ----*/
+@mixin mobile-lg {
+  @media (max-width: #{$mobile-lg}) {
+    @content;
+  }
+}
+
+/*---- mobile-md ----*/
+@mixin mobile-md {
+  @media (max-width: #{$mobile-md}) {
+    @content;
+  }
+}
+
+/*---- mobile-500 ----*/
+@mixin mobile-500 {
+  @media (max-width: #{$mobile-md-500}) {
+    @content;
+  }
+}
+
+/*---- mobile-sm ----*/
+@mixin mobile-sm {
+  @media (max-width: #{$mobile-sm}) {
+    @content;
+  }
+}
+
+/*---- mobile-xs-349 ----*/
+@mixin mobile-xs-349 {
+  @media (max-width: #{$mobile-sm-349}) {
+    @content;
+  }
+}
+
+/*---- mobile-xs-349 ----*/
+@mixin mobile-xs-359 {
+  @media (max-width: #{$mobile-sm-359}) {
+    @content;
+  }
+}
+
+
+/*---- mobile-xs ----*/
+@mixin mobile-xs {
+  @media (max-width: #{$mobile-xs}) {
+    @content;
+  }
+}
+
+
+//css3-propertisc all browser support
+@mixin css3($property, $value) {
+  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+//@include css3(transition, 0.5s);
+
+// box-shadow
+@mixin box-shadow($shadowval) {
+  box-shadow: $shadowval;
+  -webkit-box-shadow: $shadowval;
+  -ms-box-shadow: $shadowval;
+  -moz-box-shadow: $shadowval;
+  -o-box-shadow: $shadowval;
+}
+
+// box-shadow
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+// gradient-linear
+@mixin gradient-linear($clr, $nxtclr) {
+  background: $clr; /* Old browsers */
+  background: -moz-linear-gradient(top, #{$clr} 0%, #{$nxtclr} 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #{$clr} 0%, #{$nxtclr} 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #{$clr} 0%, #{$nxtclr} 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$clr}', endColorstr='#{$nxtclr}', GradientType=0); /* IE6-9 */
+}
+
+// text-shadow
+@mixin text-shadow($txtshadow) {
+  text-shadow: $txtshadow;
+  -webkit-text-shadow: $txtshadow;
+  -ms-text-shadow: $txtshadow;
+  -moz-text-shadow: $txtshadow;
+  -o-text-shadow: $txtshadow;
+}
+
+// background size
+@mixin bg-cover($cover) {
+  -moz-background-size: $cover;
+  -o-background-size: $cover;
+  -ms-background-size: $cover;
+  -webkit-background-size: $cover;
+  background-size: $cover;
+}
+
+// transition
+@mixin transition($transition) {
+  transition: $transition;
+  -webkit-transition: $transition;
+  -ms-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+}
+
+// @include transition(all 1s); <- how to use this mixin
+
+// generic transform property
+// transform-origin
+@mixin transform-origin($origin) {
+  transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -o-transform-origin: $origin;
+}
+
+// transform
+@mixin transform($transforms) {
+  transform: $transforms;
+  -webkit-transform: $transforms;
+  -ms-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// @include rotate(45); <- how to use this mixin
+
+// skew
+@mixin skewy($degval) {
+  @include transform(skewy(#{$degval}deg));
+}
+
+// @include skewy(5); <- how to use this mixin
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// @include scale(2); <- how to use this mixin
+
+// translate
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// @include translate(50px,0px); <- how to use this mixin
+
+// full-width
+@mixin full-width {
+  position: relative;
+  width: 100%;
+  float: left;
+}
+
+//img-url-extantion
+@mixin imgurl($img, $extension) {
+  background-image: url('../images/' + $img + '.' + $extension);
+}
+
+//calibri font
+@mixin calibri($type) {
+  @if $type == 'normal' {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Calibri';
+
+  } @else if $type == 'bold' {
+    font-family: 'Calibri';
+    font-weight: bold;
+    font-style: normal;
+
+  } @else if $type == 'light' {
+    font-family: 'Calibri';
+    font-weight: 300;
+    font-style: normal;
+  } @else {
+    font-family: 'Calibri';
+  }
+}
+
+// full-w
+.full-w {
+  width: 100%;
+  float: left;
+}
+
+// ripple
+.ripple {
+  overflow: hidden;
+  position: relative;
+}
+
+// ripple-effect
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  animation: ripple-animation 2s;
+}
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(1);
+    background: rgba(255, 255, 255, 0.3);
+  }
+  to {
+    transform: scale(100);
+    background: rgba(255, 255, 255, 0.0);
+  }
+}
+
+// zoom-img
+img[data-action="zoom"] {
+  cursor: pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+}
+
+.zoom-img,
+.zoom-img-wrap {
+  position: relative;
+  z-index: 666;
+  -webkit-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+}
+
+img.zoom-img {
+  cursor: pointer;
+  cursor: -webkit-zoom-out;
+  cursor: -moz-zoom-out;
+}
+
+.zoom-overlay {
+  z-index: 420;
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  filter: "alpha(opacity=0)";
+  opacity: 0;
+  -webkit-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.zoom-overlay-open .zoom-overlay {
+  filter: "alpha(opacity=100)";
+  opacity: 1;
+}
+
+.zoom-overlay-open,
+.zoom-overlay-transitioning {
+  cursor: default;
+}
+
+
+

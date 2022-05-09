@@ -1,0 +1,283 @@
+//header
+.header {
+  @include full-width;
+  @include imgurl(top-headerBg, png);
+  background-size: cover;
+  padding: 26px 0;
+  height: 799px;
+  background-position: top left;
+  background-repeat: no-repeat;
+  @include bg-cover(cover);
+  margin-bottom: 168px;
+  @include custom-max(1700) {
+    margin-bottom: 106px;
+  }
+  @include custom-max(1199) {
+    height: auto;
+    margin-bottom: 0;
+  }
+  @include custom-max(991) {
+    padding-top: 0;
+  }
+  @include custom-max(767) {
+    height: auto;
+  }
+
+  // before & after
+  &:before, &:after {
+    content: '';
+    position: absolute;
+  }
+
+  // before
+  &:before {
+    left: 0;
+    bottom: 38px;
+    @include imgurl(left-header-shape, png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    @include bg-cover(100%);
+    width: 402px;
+    height: 525px;
+    @include custom-max(767) {
+      width: 344px;
+      height: 451px;
+    }
+    @include custom-max(320) {
+      width: 222px;
+      height: 325px;
+    }
+  }
+
+  &:after {
+    right: 51px;
+    top: 83px;
+    @include imgurl(right-header-shape, png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    @include bg-cover(100%);
+    width: 322px;
+    height: 292px;
+    @include custom-max(991) {
+      width: 262px;
+      right: 30px;
+      height: 292px;
+    }
+    @include custom-max(767) {
+      right: 10px;
+    }
+    @include custom-max(479) {
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+    }
+    @include custom-max(320) {
+      width: 142px;
+      height: 292px;
+    }
+  }
+
+  // header-mobile
+  .header-mobile img, .col-sm-7, .logo {
+    position: relative;
+    z-index: 4;
+  }
+
+  .wave-shadow {
+    z-index: 2;
+    bottom: -2px;
+    @include mq(min, 992) {
+      height: 127px;
+    }
+  }
+
+  .container {
+    width: 1339px;
+    max-width: 100%;
+    @include min-max(768, 1399) {
+      padding: 0 30px;
+    }
+  }
+
+  .logo {
+    padding: 0px 70px;
+    @include custom-max(767) {
+      padding: 0 15px;
+    }
+
+    h1 {
+      color: $white;
+      font-size: 34.7px;
+      font-family: 'Lato', sans-serif;
+      font-weight: normal;
+      @include custom-max(991) {
+        font-size: 32px;
+        text-align: center;
+        margin: 0;
+        padding: 50px 0;
+        margin-bottom: -6px;
+      }
+      @include custom-max(767) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .header-middleSection {
+    padding-top: 176px;
+    padding-right: 70px;
+    @include full-width;
+    @include custom-max(1700) {
+      padding-top: 126px;
+    }
+    @include custom-max(1199) {
+      padding-right: 0;
+      padding-top: 80px;
+    }
+    @include custom-max(991) {
+      padding-top: 40px;
+      padding-right: 0;
+    }
+    @include custom-max(767) {
+      padding-top: 0px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 42.75px;
+      color: $white;
+      font-family: 'Lato', sans-serif;
+      font-weight: normal;
+      letter-spacing: -0.4px;
+      margin-bottom: 11px;
+      line-height: 1.19;
+      @include custom-max(991) {
+        font-size: 26.75px;
+        margin-top: 0;
+      }
+      @include custom-max(767) {
+        font-size: 25px;
+      }
+      @include custom-max(320) {
+        font-size: 20.75px;
+      }
+    }
+
+    span {
+      font-size: 35px;
+      letter-spacing: 1.3px;
+      @include custom-max(991) {
+        font-size: 24px;
+      }
+      @include custom-max(767) {
+        font-size: 22px
+      }
+      @include custom-max(320) {
+        font-size: 18px;
+      }
+    }
+
+    p {
+      color: $white;
+      font-size: 27px;
+      @include calibri(light);
+      letter-spacing: -1.25px;
+      line-height: 1.3;
+      @include custom-max(767) {
+        font-size: 20px
+      }
+    }
+
+    // button-part-banner
+    .button-part-banner {
+      width: 100%;
+      float: right;
+      padding-top: 30px;
+      text-align: right;
+      padding-right: 68px;
+      font-size: 0;
+      @include custom-max(991) {
+        padding-right: 0;
+        padding-left: 0;
+        text-align: left;
+      }
+      @include custom-max(767) {
+        text-align: center;
+        padding: 10px 0 50px
+      }
+
+      // a
+      a {
+        @include custom-max(767) {
+          padding: 8px 10px;
+          display: inline-block;
+        }
+      }
+
+      // first-btn
+      .first-btn {
+        display: inline-block;
+        min-width: 168px;
+        text-align: center;
+        padding: 8px 12px;
+        margin-left: 20px;
+        font-size: 20px;
+        color: $white;
+        background: #ff6694;
+        border-radius: 50px;
+        @include calibri(bold);
+        // bg-btn
+        &.bg-btn {
+          background: $black;
+        }
+
+        @include custom-max(991) {
+          margin-left: 0px;
+          margin-right: 20px;
+        }
+
+        @include custom-max(767) {
+          min-width: 190px;
+          margin: 0;
+        }
+        @include custom-max(400) {
+          display: block;
+          width: 100%;
+        }
+
+        &.first {
+          @include custom-max(767) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .header-mobile {
+    padding-top: 116px;
+    @include full-width;
+    @include custom-max(1700) {
+      padding-top: 50px;
+    }
+    @include custom-max(1199) {
+      padding-top: 30px;
+      text-align: center;
+    }
+    @include custom-max(991) {
+      padding-top: 0;
+    }
+    @include custom-max(767) {
+      text-align: center;
+      position: relative;
+      left: -1.9%;
+      margin-bottom: 60px;
+    }
+    @include custom-max(425) {
+      left: -3%;
+    }
+
+  }
+}
+
+//header-end

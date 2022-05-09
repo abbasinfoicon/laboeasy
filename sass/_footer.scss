@@ -1,0 +1,106 @@
+// footer
+
+.footer {
+  @include full-width;
+  @include imgurl(footer-bg, png);
+  height: auto;
+  padding: 29px 0;
+  background-size: cover;
+  text-align: center;
+  .section-footer {
+    padding: 0 15px;
+    margin-bottom: 58px;
+    @include custom-max(1199) {
+      margin-bottom: 40px;
+    }
+  }
+  .footer-list {
+    padding: 0 15px;
+    ul {
+      font-size: 0;
+      li {
+        display: inline-block;
+        font-size: 20px;
+        position: relative;
+        &:after {
+          position: absolute;
+          content: '';
+          width: 2px;
+          height: 13px;
+          background: #fff;
+          top: 8px;
+          right: -1px;
+        }
+
+        // first-child
+        &:last-child{
+          &:after {
+            display: none;
+          }
+        }
+
+        // a
+        a {
+          color: $white;
+          padding: 0 6px;
+          @include calibri(normal);
+          @include transition(all 0.4s);
+          &:hover{
+            color: rgba(255, 255, 255, 0.70);
+          }
+          @include custom-max(767){
+            padding: 0 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// bottom-footer
+.bottom-footer {
+  background: #919191;
+  @include full-width;
+  color: $white;
+  padding: 18px 15px;
+  font-family: 'Lato';
+  font-weight: normal;
+  @include custom-max(500) {
+    padding: 22px 15px;
+  }
+  .left-text {
+    float: left;
+    padding: 0 31px;
+    font-size: 21.1px;
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    @include custom-max(767) {
+      padding: 0px;
+    }
+    @include custom-max(500) {
+      display: block;
+      width: 100%;
+      float: left;
+      top: 0;
+      position: static;
+      text-align: center;
+      @include transform(translateY(0));
+      margin-bottom: 12px;
+    }
+  }
+
+  // left-text2
+  .left-text2 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 13.54px;
+    @include calibri(normal);
+    a{
+      color: $white;
+    }
+  }
+}
+
+// footer
